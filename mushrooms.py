@@ -6,7 +6,7 @@ import pygame as pg
 import os
 import subprocess
 
-TRACK_FOLDER = "./tracks/"
+TRACK_FOLDER = "/home/pi/mushrooms/tracks/"
 
 pins = ("GPIO5", "GPIO6", "GPIO13", "GPIO19", "GPIO26", "GPIO16", "GPIO20", "GPIO21")
 tracks = os.listdir(TRACK_FOLDER)
