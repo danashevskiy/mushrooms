@@ -15,13 +15,14 @@ players = [None] * 8
 
 def main():
     #set maxumum volume for jack output
-    subprocess.run("amixer -D 'hw:1' set Headphone 100%", shell=True)
+    subprocess.run("amixer -D 'hw:1' set Headphone 97%", shell=True)
     pg.mixer.init()
     pg.init()
     for index, (pin, track) in enumerate(zip(pins, tracks)):
         players[index] = pg.mixer.Sound(TRACK_FOLDER + track)
-        buttons[index] = Button(pin)
+        buttons[index] = Button(pin, pull_up=False)
         buttons[index].when_pressed = players[index].play
+        #print(buttons[index])
     pg.mixer.set_num_channels(8)
     pause()
 
