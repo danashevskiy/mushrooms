@@ -7,6 +7,7 @@ import os
 import subprocess
 
 TRACK_FOLDER = "/home/pi/mushrooms/tracks/"
+PING = "/home/pi/mushrooms/ping.wav"
 
 pins = ("GPIO5", "GPIO6", "GPIO13", "GPIO19", "GPIO26", "GPIO16", "GPIO20", "GPIO21")
 tracks = os.listdir(TRACK_FOLDER)
@@ -16,6 +17,7 @@ players = [None] * 8
 def main():
     #set maxumum volume for jack output
     subprocess.run("amixer -D 'hw:1' set Headphone 97%", shell=True)
+    subprocess.run("aplay {0}".format(PING), shell=True)
     pg.mixer.init()
     pg.init()
     for index, (pin, track) in enumerate(zip(pins, tracks)):
