@@ -16,7 +16,7 @@ players = [None] * 8
 
 def main():
     #set maxumum volume for jack output
-    subprocess.run("amixer -D 'hw:1' set Headphone 97%", shell=True)
+    subprocess.run("amixer -D 'hw:1' set Headphone 100%", shell=True)
     subprocess.run("aplay {0}".format(PING), shell=True)
     pg.mixer.init()
     pg.init()
